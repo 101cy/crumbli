@@ -1,13 +1,22 @@
 {
   "name": "Crumbli",
-  "description": "Signal user cookie consent preferences via the HTTP DNT header field.",
+  "description": "Signal user cookie consent preference via the DNT HTTP header field.",
   "version": "1.0",
+  "homepage_url": "https://github.com/101cy/crumbli",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "/popup/popup.html",
-    "default_icon": "/images/crumbli.png"
-  }
+    "default_popup": "popup/popup.html",
+    "default_icon": "images/crumbli.png"
+  },
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "incognito": "split"
 }
