@@ -1,3 +1,19 @@
+const AVAILABLE_RESOURCE_TYPES = [
+    "main_frame",
+    "sub_frame",
+    "stylesheet",
+    "script",
+    "image",
+    "font",
+    "object",
+    "xmlhttprequest",
+    "ping",
+    "csp_report",
+    "media",
+    "websocket",
+    "other",
+  ];
+
 async function updateDefaultPolicy(policy) {
 
     await chrome.declarativeNetRequest.updateDynamicRules({
@@ -11,7 +27,7 @@ async function updateDefaultPolicy(policy) {
                     { "header": "DNT", "operation": "set", "value": policy},
                 ]
             },
-            "condition": { }
+            "condition": { "resourceTypes": AVAILABLE_RESOURCE_TYPES }
         }]
     });
 
