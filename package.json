@@ -1,0 +1,23 @@
+{
+  "name": "crumbli",
+  "version": "1.0",
+  "description": "Chrome extension for signaling user cookie consent preferences via the HTTP DNT header field.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/101cy/crumbli.git"
+  },
+  "keywords": [
+    "cookie",
+    "consent",
+    "DNT"
+  ],
+  "author": "101.CY",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/101cy/crumbli/issues"
+  },
+  "homepage": "https://github.com/101cy/crumbli#readme"
+}
