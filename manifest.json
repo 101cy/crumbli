@@ -13,7 +13,8 @@
   },
   "permissions": [
     "declarativeNetRequest",
-    "declarativeNetRequestFeedback"
+    "declarativeNetRequestFeedback",
+    "privacy"
   ],
   "host_permissions": [
     "<all_urls>"
