@@ -1,7 +1,28 @@
 
 <html>
-    <body>
-      <h1>Crumbli</h1>
-      <script src="popup.js"></script>
-    </body>
+  <head>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <h1>Crumbli</h1>
+    <script src="popup.js"></script>
+    <h3>Default Privacy Policy</h3>
+    <h4>I consent to be subject to identifying technologies for the following purposes: </h4>
+    <form>
+      <input type="radio" id="NECESSARY" name="def_policy" value="1:NECESSARY">
+      <label for="NECESSARY">NECESSARY</label> strictly essential for the proper function of a Website.
+      <br>
+      <input type="radio" id="PREFERENCES" name="def_policy" value="1:PREFERENCES">
+      <label for="PREFERENCES">PREFERENCES</label> allow a Website to remember choices you have made in the past.
+      <br>
+      <input type="radio" id="ANALYTICS" name="def_policy" value="1:ANALYTICS">
+      <label for="ANALYTICS">ANALYTICS</label> anonymized statistics about user activity on a Website.
+      <br>
+      <input type="radio" id="TRACKING" name="def_policy" value="0">
+      <label for="TRACKING">TRACKING</label> used for uniquely identifying your actions or interests. Potentially shared with 3rd parties, such as advertisers.
+      <br>
+      <br>
+      <input type="submit" value="Set Policy">
+    </form>
+  </body>
   </html>
