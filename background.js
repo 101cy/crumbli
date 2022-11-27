@@ -35,6 +35,8 @@ async function takeOverDNT(bool) {
 
 async function updateDefaultPolicy(policy) {
 
+    chrome.action.setTitle({"title": "Policy " + policy});
+
     await chrome.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: [1],
         addRules:[{
