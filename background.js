@@ -16,9 +16,9 @@ const AVAILABLE_RESOURCE_TYPES = [
 
 
 async function takeOverDNT(bool) {
-    chrome.privacy.websites.doNotTrackEnabled.get({}, function(dnt) {
+    chrome.privacy.websites.doNotTrackEnabled.get({}, (dnt) => {
         if (dnt.levelOfControl === "controllable_by_this_extension") {
-            chrome.privacy.websites.doNotTrackEnabled.set( {"value": bool}, function() {
+            chrome.privacy.websites.doNotTrackEnabled.set( {"value": bool}, () => {
                 if (chrome.runtime.lastError === undefined && dnt === true) {
                     console.log("Could not overwrite enabled DNT");
                 } else {
@@ -53,8 +53,21 @@ async function updateDefaultPolicy(policy) {
 }
 
 chrome.declarativeNetRequest.onRuleMatchedDebug.addListener(() => {
-    console.log('matched rule');
+    console.log("matched rule");
 });
 
-takeOverDNT(false);
-updateDefaultPolicy("1:q0");
+chrome.runtime.onInstalled.addListener((details) => {
+    if(details.reason == "install"){
+        takeOverDNT(false);
+        
+        chrome.storage.local.set({"defaultPolicy": "1"}, () => {
+            console.log("Default Policy set to 1");
+        });
+    }
+});
+
+chrome.storage.onChanged.addListener((changes, namespace) => {
+    if ("defaultPolicy" in changes) {
+        updateDefaultPolicy(changes.defaultPolicy.newValue);
+    }
+});
